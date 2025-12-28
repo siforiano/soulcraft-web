@@ -1,12 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Cursor Glow Effect ---
     const cursorGlow = document.getElementById('cursor-glow');
     document.addEventListener('mousemove', (e) => {
         cursorGlow.style.left = e.clientX + 'px';
         cursorGlow.style.top = e.clientY + 'px';
     });
-
-    // --- Staggered Reveal Initialization ---
     const staggerContainers = document.querySelectorAll('.stagger-container');
     staggerContainers.forEach(container => {
         const children = container.querySelectorAll('.reveal');
@@ -15,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Scroll Animations (Reveal on Scroll) ---
     const reveals = document.querySelectorAll('.reveal');
 
     const revealObserver = new IntersectionObserver((entries) => {
@@ -31,8 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     reveals.forEach(reveal => {
         revealObserver.observe(reveal);
     });
-
-    // --- Header Scroll Effect ---
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -42,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Mobile Menu Toggle ---
     const menuBtn = document.getElementById('mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
 
@@ -67,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Copy IP Functionality ---
     const ipBtn = document.getElementById('copy-ip');
     if (ipBtn) {
         ipBtn.addEventListener('click', () => {
@@ -84,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Custom Particle System (Soul Essences) ---
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     const container = document.getElementById('particles-js');
@@ -111,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.y = Math.random() * canvas.height;
             this.size = Math.random() * 3 + 1;
             this.speedX = Math.random() * 1 - 0.5;
-            this.speedY = Math.random() * -1 - 0.5; // Moving upwards like souls
+            this.speedY = Math.random() * -1 - 0.5;
             this.opacity = Math.random() * 0.5 + 0.2;
             this.color = Math.random() > 0.5 ? '#8e44ad' : '#be2edd';
         }
@@ -120,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.x += this.speedX;
             this.y += this.speedY;
 
-            if (this.y < 0) this.init(); // Reset to bottom
+            if (this.y < 0) this.init();
             if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
         }
 
